@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="index.css">
+
+<script src="https://cdn.jsdelivr.net/npm/interactjs@1.3.4/dist/interact.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js"></script>
+<script src="interact.js"></script>
+</head>
+
+<body>
+
+  <div class= "holder">
+    <svg id="patchCords"></svg>
+
+    <div id="buttonList">
+      <div>
+        <button class="button button1" onClick="createDiv('osc')">osc</button>
+      </div>
+      <div>
+        <button class="button button1" onClick="createDiv('lfo')">lfo</button>
+      </div>
+      <div>
+        <button class="button button1" onClick="createDiv('bpf')">bpf</button>
+      </div>
+      <div id="dropzone" class="dropzone">delete</div>
+    </div>
+
+    <div id="main"></div>
+
+  </div>
+
+<script>
+
+const patchCords = {};
+let patchCordBool = false;
+
+window.addEventListener('click', function (event) {
+    if (document.getElementById("main").contains(event.target)) {
+        patchCordBool = true;
+        console.log(patchCords);
+    } else {
+        patchCordBool = false;
+        console.log('clicked outside');
+    }
+});
+
+window.addEventListener('mousemove', function (event) {
+  if (patchCordBool) {
+    var mouse_x = event.clientX;     // Get the horizontal coordinate
+    var mouse_y = event.clientY;     // Get the vertical coordinate
+    console.log("X coords: " + mouse_x + ", Y coords: " + mouse_y);
+  }
+});
+
+let oscCounter = 0;
+let lfoCounter = 0;
+let bpfCounter = 0;
+function createDiv(type) {
+    let div = document.createElement('div');
+    document.getElementById('main').appendChild(div)
+    div.className = 'draggable';
+    if (type == 'osc') {
+      div.innerHTML = 'OSC';
+      div.style.backgroundColor = randomColor({luminosity: 'dark', hue: 'blue'});
+      div.setAttribute("id", "osc" + oscCounter)
+      oscCounter += 1;
+    }
+    if (type == 'lfo') {
+      div.innerHTML = 'LFO';
+      div.style.backgroundColor = randomColor({luminosity: 'dark', hue: 'green'});
+      div.setAttribute("id", "lfo" + lfoCounter)
+      lfoCounter += 1;
+    }
+    if (type == 'bpf') {
+      div.innerHTML = 'BPF';
+      div.style.backgroundColor = randomColor({luminosity: 'dark', hue: 'red'});
+      div.setAttribute("id", "bpf" + bpfCounter)
+      bpfCounter += 1;
+    }
+  }
+
+// function mouseCoords(event) {
+//   var mouse_x = event.clientX;     // Get the horizontal coordinate
+//   var mouse_y = event.clientY;     // Get the vertical coordinate
+//   console.log("X coords: " + mouse_x + ", Y coords: " + mouse_y);
+// }
+
+// interact('.draggable')
+//   .draggable({
+//     // enable inertial throwing
+//     inertia: false,
+//     // keep the element within the area of it's parent
+//     // restrict: {
+//     //   restriction: "parent",
+//     //   endOnly: true,
+//     //   elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+//     // },
+//     // enable autoScroll
+//     autoScroll: true,
+//     // call this function on every dragmove event
+//     onmove: dragMoveListener,
+//   });
+//
+//   function dragMoveListener (event) {
+//     let target = event.target,
+//         // keep the dragged position in the data-x/data-y attributes
+//         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+//         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+//
+//     // translate the element
+//     target.style.webkitTransform =
+//     target.style.transform =
+//       'translate(' + x + 'px, ' + y + 'px)';
+//
+//     // update the posiion attributes
+//     target.setAttribute('data-x', x);
+//     target.setAttribute('data-y', y);
+//
+//     patchCords[event.target.id] = [target.getBoundingClientRect().x, target.getBoundingClientRect().y]
+//     // console.log(target.getBoundingClientRect());
+//   }
+//
+// // enable draggables to be dropped into this
+// interact('.dropzone').dropzone({
+//   // Require a 50% element overlap for a drop to be possible
+//   overlap: 0.50,
+//
+//   // listen for drop related events:
+//
+//   ondropactivate: function (event) {
+//     // add active dropzone feedback
+//     event.target.classList.add('drop-active');
+//   },
+//   ondragenter: function (event) {
+//     let draggableElement = event.relatedTarget,
+//         dropzoneElement = event.target;
+//
+//     // feedback the possibility of a drop
+//     dropzoneElement.classList.add('drop-target');
+//   },
+//   ondragleave: function (event) {
+//     // remove the drop feedback style
+//     event.target.classList.remove('drop-target');
+//   },
+//   ondrop: function (event) {
+//     event.relatedTarget.remove();
+//   },
+//   ondropdeactivate: function (event) {
+//     // remove active dropzone feedback
+//     event.target.classList.remove('drop-active');
+//     event.target.classList.remove('drop-target');
+//   }
+// });
+
+</script>
+
+</body>
+</html>
