@@ -29,8 +29,11 @@ interact('.draggable')
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 
-    patchCords[event.target.id] = [target.getBoundingClientRect().x, target.getBoundingClientRect().y]
-    // console.log(target.getBoundingClientRect());
+    patchCords[event.target.id] = [target.getBoundingClientRect().x, target.getBoundingClientRect().y];
+
+    // What is the location of the current selection?
+    currentSelectionX = target.getBoundingClientRect().x;
+    currentSelectionY = target.getBoundingClientRect().y;
   }
 
 // enable draggables to be dropped into this
@@ -56,6 +59,7 @@ interact('.dropzone').dropzone({
     event.target.classList.remove('drop-target');
   },
   ondrop: function (event) {
+    // delete the dragged object
     event.relatedTarget.remove();
   },
   ondropdeactivate: function (event) {
