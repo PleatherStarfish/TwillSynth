@@ -15,7 +15,7 @@ interact('.draggable')
   });
 
   function dragMoveListener (event) {
-    let target = event.target,
+    let target = event.target;
         // keep the dragged position in the data-x/data-y attributes
         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
@@ -31,9 +31,6 @@ interact('.draggable')
 
     patchCords[event.target.id] = [target.getBoundingClientRect().x, target.getBoundingClientRect().y];
 
-    // What is the location of the current selection?
-    currentSelectionX = target.getBoundingClientRect().x;
-    currentSelectionY = target.getBoundingClientRect().y;
   }
 
 // enable draggables to be dropped into this
