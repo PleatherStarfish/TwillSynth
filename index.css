@@ -12,7 +12,7 @@
   width: 100px;
   height: 200px;
   border: dashed 4px transparent;
-  float:left;
+  float: left;
   font-family: Helvetica, sans-serif;
   color: white;
   text-align: center;
@@ -22,7 +22,7 @@
 .draggable {
   width: 100px;
   height: 200px;
-  float:left;
+  float: left;
   background-color: grey;
   font-family: Helvetica, sans-serif;
   color: white;
@@ -46,6 +46,10 @@
   border-style: solid;
   text-transform: uppercase;
   transition: 0.5s;
+}
+
+.title {
+
 }
 
 .button {
@@ -73,6 +77,60 @@
 .button1:hover {
   background-color: blue;
   color: white;
+}
+
+.port {
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  background: #000;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+  behavior: url(PIE.htc);
+}
+
+.in {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  margin-top: 30px;
+  position: absolute;
+}
+
+.out {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  margin-top: 30px;
+}
+
+.port .tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 50px;
+  background-color: rgba(0, 0, 0);
+  color: rgba(255, 255, 255);
+  opacity: 0.5;
+  text-align: center;
+  padding: 5px 15px;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1000;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  transition: all 1000ms;
 }
 
 #patchCords {
