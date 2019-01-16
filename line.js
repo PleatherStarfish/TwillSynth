@@ -5,7 +5,7 @@ function drawLine(x1, y1, x2, y2) {
     newLine.setAttribute('x2', x2);
     newLine.setAttribute('y2', y2);
     newLine.setAttribute('stroke', randomColor({luminosity: 'light'}));
-    newLine.setAttribute('stroke-width', '5');
+    newLine.setAttribute('stroke-width', '6');
     document.getElementById("patchCords")
             .appendChild(newLine)
             .setAttribute("id", "patchCord" + patchCordCounter);

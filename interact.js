@@ -16,6 +16,9 @@ interact('.draggable')
 
   function dragMoveListener (event) {
     let target = event.target;
+
+    target.parentNode.appendChild(target); // bring selection to front
+
         // keep the dragged position in the data-x/data-y attributes
         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;

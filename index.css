@@ -3,6 +3,22 @@
   height: 500px;
 }
 
+h1 {
+  font-family: 'Concert One', cursive;
+  color: #E5E7E9;
+  letter-spacing: 0.5rem;
+  font-size: 32pt;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  right: 0;
+  position: absolute;
+  margin-right: 15pt;
+}
+
 .dropzone {
   background-color: white;
   border-style: dotted;
@@ -48,8 +64,8 @@
   transition: 0.5s;
 }
 
-.title {
-
+.objectTitle {
+  text-transform: uppercase;
 }
 
 .button {

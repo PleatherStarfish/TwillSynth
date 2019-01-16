@@ -1,2 +1,2 @@
 # CordsSynth
-A patchable modular synth emulator GUI for the browser built on top of Tone.js.
+A patchable modular synthesizer emulator and GUI for the browser built on Tone.js and Interact.js.
