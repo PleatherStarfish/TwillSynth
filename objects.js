@@ -6,7 +6,7 @@ const objectsList = {
   lfo: {in: [0, 1, 2],
         out: [0, 1],
         color: "green"},
-        
+
   bpf: {in: [0, 1, 2],
         out: [0, 1],
         color: "red"}
@@ -26,6 +26,7 @@ function drawObject(div, type, oscCounter, lfoCounter, bpfCounter) {
     let inFlexbox = document.createElement("div");
     div.appendChild(inFlexbox);
     inFlexbox.setAttribute("class", "in");
+    inFlexbox.setAttribute("id", "input");
 
     let inNum = 0;
     for (let port in objectsList.osc.in) {
@@ -40,6 +41,7 @@ function drawObject(div, type, oscCounter, lfoCounter, bpfCounter) {
     let outFlexbox = document.createElement("div");
     div.appendChild(outFlexbox);
     outFlexbox.setAttribute("class", "out");
+    outFlexbox.setAttribute("id", "output");
 
     let outNum = 0;
     for (let port in objectsList.osc.out) {

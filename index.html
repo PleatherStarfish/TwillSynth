@@ -32,12 +32,24 @@
 <script src="objects.js"></script>
 <script src="mouseClick.js"></script>
 <script src="mouseMove.js"></script>
+<script src="createDiv.js"></script>
 
 </head>
 
 <body>
 
-  <div class="title"><h1 class="animated zoomInUp delay-1s">#twill</h1></div>
+  <script>
+    const patchCords = {};
+    let patchCordActive = false;
+    let currentSelectionX;
+    let currentSelectionY;
+    let patchCordCounter = 0; // Used to set a unique ID for each patch cord
+    let oscCounter = 0;
+    let lfoCounter = 0;
+    let bpfCounter = 0;
+  </script>
+
+  <div class="title"><h1 class="animated bounceInUp delay-1s">#twill</h1></div>
 
   <div class= "holder">
     <svg id="patchCords"></svg>
@@ -58,26 +70,6 @@
     <div id="main"></div>
 
   </div>
-
-<script>
-
-const patchCords = {};
-let patchCordActive = false;
-let currentSelectionX;
-let currentSelectionY;
-let patchCordCounter = 0; // Used to set a unique ID for each patch cord
-let oscCounter = 0;
-let lfoCounter = 0;
-let bpfCounter = 0;
-
-function createDiv(type) {
-    let div = document.createElement('div');
-    document.getElementById('main').appendChild(div);
-    div.className = 'draggable';
-    drawObject(div, type, oscCounter, lfoCounter, bpfCounter);
-}
-
-</script>
 
 </body>
 </html>
